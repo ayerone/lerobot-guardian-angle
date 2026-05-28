@@ -32,6 +32,8 @@ I programmed the arm to sweep back and forth between -30° and +30° on the shou
 
 ## What the data showed
 
+![Motor load plot](images/motor_load.png)
+
 With the four-panel live plot running while the arm swept ±30° back and forth, a few things became clear:
 
 **Resisting movement by hand increased both load and current, as expected.** The more resistance applied, the higher both values climbed.
