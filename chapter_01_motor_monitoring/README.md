@@ -20,15 +20,13 @@ The Feetech STS3215 servos expose several feedback registers. Two stood out: `Pr
 
 ## Building the live plot
 
-I did this development in a Jupyter Notebook using [Datalayer's JupyterLab MCP server](https://github.com/datalayer/jupyter-mcp-server). The notebook reads the `Present_Position`, `Present_Load`, `Present_Current`, and `Present_Temperature` registers from the Feetech servo bus and updates a live plot using ipympl's `%matplotlib widget`.
+I did this development in a Jupyter Notebook using [Datalayer's JupyterLab MCP server](https://github.com/datalayer/jupyter-mcp-server). The notebook reads the `Present_Position`, `Present_Load`, `Present_Current`, and `Present_Temperature` registers from the Feetech servo bus and updates a live plot using [Dash](https://dash.plotly.com/) and Plotly.
 
-The plot runs in a background thread because of a JupyterLab constraint: while a cell is executing (kernel is "busy"), all widget updates are held and delivered only when the cell finishes. A blocking read loop inside a cell gives you nothing until you interrupt it. The fix is to have each cell return immediately — start the work in a daemon thread, let the cell finish, let the kernel go idle, and then updates flow to the browser continuously.
-
-With a second thread running the robot movement, you need a `threading.Lock` around every serial bus access. I learned this the hard way (more about this in [Chapter 02 — Safe Movements](../chapter_02_safe_movements/)).
+The Dash server starts in a background thread and returns immediately, keeping the kernel idle so plot updates reach the browser continuously. The robot motion and sensor reads run in a separate blocking cell via a simple `while` loop that steps the motor, reads the bus, and sleeps. The Dash callback reads from an in-memory buffer that the loop appends to.
 
 ## Experiment
 
-I programmed the arm to sweep back and forth between -30° and +30° on the shoulder pan joint, pausing for 1.5 seconds at each extreme. At various points I applied resistance with my hand to see how much the load and current would increase in response.
+I programmed the arm to sweep back and forth between -30° and +30° on the shoulder pan joint, pausing for 1 second at each extreme. At various points I applied resistance with my hand to see how much the load and current would increase in response.
 
 ## What the data showed
 

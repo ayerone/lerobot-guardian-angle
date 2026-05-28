@@ -1,6 +1,9 @@
 # Chapters not yet published
 chapter_02_safe_movements/
 
+# Archive folders
+chapter_01_motor_monitoring/ARCHIVE/
+
 # Jupyter
 .ipynb_checkpoints/
 *.ipynb_checkpoints
