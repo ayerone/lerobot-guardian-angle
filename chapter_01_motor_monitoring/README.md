@@ -20,7 +20,7 @@ The Feetech STS3215 servos expose several feedback registers. Two stood out: `Pr
 
 ## Building the live plot
 
-I did this development in a Jupyter Notebook using [Datalayer's JupyterLab MCP server](https://github.com/datalayer/jupyter-mcp-server). The Jupyter server must be launched from within the lerobot venv so the notebook kernel has access to the lerobot package. Launch the Jupyter server and the MCP server from two separate terminals:
+I did this development in a Jupyter Notebook using [Datalayer's JupyterLab MCP server](https://github.com/datalayer/jupyter-mcp-server). The JupyterLab server must be launched from within the lerobot venv so the notebook kernel has access to the lerobot package. Launch the Jupyter server and the MCP server from two separate terminals:
 
 ```bash
 (venv) jupyter lab --port 8888 --IdentityProvider.token MAKE_UP_A_TOKEN
