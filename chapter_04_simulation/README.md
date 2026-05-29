@@ -30,6 +30,14 @@ rm -rf SO-ARM100
 
 Then run the simulation:
 
+### Real-world SO-101 Leader Teleop
+
+```bash
+bash run_sim_leader_teleop.sh
+```
+
+### Keyboard Teleop
+
 ```bash
 uv run python ./sim_keyboard_teleop.py
 ```
@@ -40,7 +48,15 @@ uv run python ./sim_keyboard_teleop.py
 
 ## Operating the Simulation
 
-You should see the robot in the simulated environment, and pressing the arrow keys, shift, and ctrl should cause it to move.
+You should see the robot in the simulated environment.
+
+### Real-world SO-101 Leader Teleop
+
+Move the leader arm and the simulated follower will mirror it in real time.
+
+### Keyboard Teleop
+
+Pressing the arrow keys, shift, and ctrl should cause the robot to move.
 
 The keyboard commands move the end-effector (the gripper tip) through Cartesian space: left/right, forward/back, up/down. But the robot's motors don't understand Cartesian coordinates; they operate in joint space, where each value is an angle for a specific servo. Bridging that gap is the job of inverse kinematics (IK).
 
