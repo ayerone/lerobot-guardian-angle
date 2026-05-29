@@ -17,6 +17,6 @@ There are reports of people burning out servos on the SO-101. Why is this happen
 | [Chapter 01 — Motor Monitoring](chapter_01_motor_monitoring/) | Reading and visualizing servo load, current, and temperature in real time |
 | Chapter 02 — Safe Movements *(Coming soon)* | Movement distance, joint velocities, and bus read sanity checks |
 | [Chapter 03 — Load Monitoring During Teleoperation](chapter_03_load_monitoring_teleop/) | Integrating motor load monitoring into lerobot-teleoperate |
-| Chapter 04 — Simulation *(Coming soon)* | Testing and validating behavior in simulation before running on hardware |
+| [Chapter 04 — Simulation](chapter_04_simulation/) | Testing and validating behavior in simulation before running on hardware |
 | Chapter 05 — End Effector Coordinate Checking *(Coming soon)* | Determining effective cartesian bounds in end-effector space |
 

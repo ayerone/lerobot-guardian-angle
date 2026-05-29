@@ -5,7 +5,7 @@
 Simulation is an extremely powerful tool in robotics. It lets you:
 
 - **Explore safely**: test control algorithms without risking damage to your hardware
-- **Iterate fast**: churn through ideas
+- **Iterate fast**: test ideas without risking expensive real-world consequences
 - **Train policies with reinforcement learning**: generate many more episodes of experience than is possible on a real robot
 - **Validate before deploying**: build confidence in a behavior in simulation before running it on hardware
 
