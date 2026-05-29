@@ -54,7 +54,7 @@ With the four-panel live plot running while the arm swept ±30° back and forth,
 
 This chapter established which values to read from the motors and how to read them. The next question is: what does the data look like under normal operating conditions — during teleoperation, dataset recording, and policy rollout?
 
-The next step is integrating these readings into `lerobot-teleoperate` or `lerobot-record` to monitor motor stress during actual operation. One challenge will be keeping the timing loop tight while adding extra bus reads. `Present_Load` or `Present_Current` could be sampled frequently as a real-time stress indicator, or `Present_Temperature` could be sampled every second or so and still potentially provide an early warning before damage occurs.
+The next step is integrating these readings into `lerobot-teleoperate` ([Chapter 3](../chapter_03_load_monitoring_teleop/README.md)) or `lerobot-record` to monitor motor stress during actual operation. One challenge will be keeping the timing loop tight while adding extra bus reads. `Present_Load` or `Present_Current` could be sampled frequently as a real-time stress indicator, or `Present_Temperature` could be sampled every second or so and still potentially provide an early warning before damage occurs.
 
 ## Notebook
 

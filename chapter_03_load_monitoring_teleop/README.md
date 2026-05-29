@@ -42,3 +42,26 @@ To add a graph:
 - Slow movements do not spike current or load.
 - Temperature rises very slowly while exercising the robot.
 - The temperature values do spike very high (above 50°C) occasionally for a single read, and this appears to be sensor noise.
+
+## Impact to Teleop Loop Timing
+
+Back in chapter 1, I flagged a concern: adding extra bus reads to get additional motor data might disrupt the speed with which we can run our teleop loop. It turns out the reads are very fast, and this added only about 1 ms per quantity, and the loop ran without issue.
+
+I added smoothing (with an exponential moving average) to get them to print out in the terminal without flickering. Here are the rough numbers:
+
+| Segment | What it measures | Observed (ms) |
+|---------|-----------------|---------------|
+| `obs` | Read follower positions (`robot.get_observation()`) | 1 |
+| `teleop` | Read leader positions (`teleop.get_action()`) | 1 |
+| `proc` | Action processor pipeline (in-memory) | 0 |
+| `send` | Write positions to follower (`robot.send_action()`) | 0 |
+| `disp` | Rerun logging of observations, actions, and images | 3 |
+| `current` | `sync_read("Present_Current")` across all 6 motors | 2 |
+| `temp` | `sync_read("Present_Temperature")` across all 6 motors | 1 |
+| `load` | `sync_read("Present_Load")` across all 6 motors | 1 |
+| `sleep` | `precise_sleep()` remainder of the 16.7 ms frame budget | 3 |
+| **total** | | **16** |
+
+The three monitoring reads together cost 4 ms. The loop still had 3 ms of sleep left, meaning it was not overrunning its 60 fps budget. The core teleop path (`obs` + `teleop` + `proc` + `send`) consumed only 2 ms, so there is room to spare even with all three reads enabled simultaneously.
+
+![Teleop loop timing terminal](images/teleop_motor_check_terminal.png)
