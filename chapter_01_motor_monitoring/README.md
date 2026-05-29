@@ -27,7 +27,7 @@ I did this development in a Jupyter Notebook using [Datalayer's JupyterLab MCP s
 ```
 
 ```bash
-(venv) jupyter-mcp-server start --transport streamable-http --jupyter-url http://localhost:8888 --jupyter-token MAKE_UP_A_TOKEN --mcp-token PROVIDE_THIS_TO_CLAUDE --port 4040
+jupyter-mcp-server start --transport streamable-http --jupyter-url http://localhost:8888 --jupyter-token MAKE_UP_A_TOKEN --mcp-token PROVIDE_THIS_TO_CLAUDE --port 4040
 ```
 
 The notebook reads the `Present_Position`, `Present_Load`, `Present_Current`, and `Present_Temperature` registers from the Feetech servo bus and updates a live plot using [Dash](https://dash.plotly.com/) and Plotly.
