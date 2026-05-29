@@ -1,5 +1,7 @@
 # Chapter 04 — Simulation
 
+![Simulated SO-101](images/simulated_so101.gif)
+
 ## Why Simulation?
 
 Simulation is an extremely powerful tool in robotics. It lets you:
@@ -16,7 +18,7 @@ This chapter sets up MuJoCo simulation for the SO-101 and introduces keyboard-ba
 Install the kinematics dependency if you haven't already:
 
 ```bash
-pip install 'lerobot[kinematics]'
+(venv) pip install 'lerobot[kinematics]'
 ```
 
 The simulation requires the SO-101 MuJoCo scene files — the URDF and XML assets that describe the robot's geometry, joints, and physics properties. Run the following from the `chapter_04_simulation/` directory to download just that folder:
@@ -33,13 +35,13 @@ Then run the simulation:
 ### Real-world SO-101 Leader Teleop
 
 ```bash
-bash run_sim_leader_teleop.sh
+(venv) bash run_sim_leader_teleop.sh
 ```
 
 ### Keyboard Teleop
 
 ```bash
-uv run python ./sim_keyboard_teleop.py
+(venv) python ./sim_keyboard_teleop.py
 ```
 
 (A guide to the keyboard controls is printed to the terminal on startup.)
