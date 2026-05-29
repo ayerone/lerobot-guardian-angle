@@ -5,7 +5,8 @@ chapter_02_safe_movements/
 config.local.sh
 
 # SO101 MuJoCo assets (clone from TheRobotStudio/SO-ARM100)
-SO101/
+SO101
+chapter_04_simulation/SO101
 
 # Archive folders
 chapter_01_motor_monitoring/ARCHIVE/
