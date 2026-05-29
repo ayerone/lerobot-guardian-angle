@@ -18,7 +18,7 @@ Catching errors caused by bad calibration, degrading motors, and dangerous opera
 In the `chapter_03_load_monitoring_teleop/` directory,
 
 ```bash
-bash run_teleop.sh
+(venv) bash run_teleop.sh
 ```
 
 This starts teleoperation with all three motor signals logging to Rerun. Test various movements to see what motor loads and currents this produces.

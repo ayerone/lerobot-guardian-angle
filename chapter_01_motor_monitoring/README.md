@@ -20,7 +20,17 @@ The Feetech STS3215 servos expose several feedback registers. Two stood out: `Pr
 
 ## Building the live plot
 
-I did this development in a Jupyter Notebook using [Datalayer's JupyterLab MCP server](https://github.com/datalayer/jupyter-mcp-server). The notebook reads the `Present_Position`, `Present_Load`, `Present_Current`, and `Present_Temperature` registers from the Feetech servo bus and updates a live plot using [Dash](https://dash.plotly.com/) and Plotly.
+I did this development in a Jupyter Notebook using [Datalayer's JupyterLab MCP server](https://github.com/datalayer/jupyter-mcp-server). The Jupyter server must be launched from within the lerobot venv so the notebook kernel has access to the lerobot package. Launch the Jupyter server and the MCP server from two separate terminals:
+
+```bash
+(venv) jupyter lab --port 8888 --IdentityProvider.token MAKE_UP_A_TOKEN
+```
+
+```bash
+(venv) jupyter-mcp-server start --transport streamable-http --jupyter-url http://localhost:8888 --jupyter-token MAKE_UP_A_TOKEN --mcp-token PROVIDE_THIS_TO_CLAUDE --port 4040
+```
+
+The notebook reads the `Present_Position`, `Present_Load`, `Present_Current`, and `Present_Temperature` registers from the Feetech servo bus and updates a live plot using [Dash](https://dash.plotly.com/) and Plotly.
 
 The Dash server starts in a background thread and returns immediately, keeping the kernel idle so plot updates reach the browser continuously. The robot motion and sensor reads run in a separate blocking cell via a simple `while` loop that steps the motor, reads the bus, and sleeps. The Dash callback reads from an in-memory buffer that the loop appends to.
 
