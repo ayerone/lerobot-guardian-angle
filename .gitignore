@@ -4,6 +4,9 @@ chapter_02_safe_movements/
 # Local config overrides (personal ports/IDs)
 config.local.sh
 
+# SO101 MuJoCo assets (clone from TheRobotStudio/SO-ARM100)
+SO101/
+
 # Archive folders
 chapter_01_motor_monitoring/ARCHIVE/
 
