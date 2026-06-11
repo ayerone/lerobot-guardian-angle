@@ -15,10 +15,10 @@ This chapter sets up MuJoCo simulation for the SO-101 and introduces keyboard-ba
 
 ## Getting Started
 
-Install the kinematics dependency if you haven't already:
+Install mujoco and required extra dependencies:
 
 ```bash
-(venv) pip install 'lerobot[kinematics]'
+(venv) pip install mujoco 'lerobot[kinematics]' 'lerobot[hardware]'
 ```
 
 The simulation requires the SO-101 MuJoCo scene files — the URDF and XML assets that describe the robot's geometry, joints, and physics properties. Run the following from the `chapter_04_simulation/` directory to download just that folder:
@@ -46,7 +46,7 @@ Then run the simulation:
 
 (A guide to the keyboard controls is printed to the terminal on startup.)
 
-**Wayland note:** `pynput` (used by lerobot for keyboard capture) does not work (for me) under Wayland. Launch the script from an XWayland terminal such as `xterm`. The terminal window must remain in focus for keyboard input to reach the simulation.
+**Wayland note:** `pynput` (used by lerobot for keyboard capture) does not work (for me) under Wayland. Launch the script from an XWayland terminal such as `xterm`. **The terminal window must remain in focus for keyboard input to reach the simulation.**
 
 ## Operating the Simulation
 
