@@ -40,13 +40,15 @@ Then run the simulation:
 
 ### Keyboard Teleop
 
+**Wayland note**: `pynput` (used by lerobot for keyboard capture) does not work (for me) under Wayland (Linux window manager) in the default terminal.
+I recommend installing xterm, which will give you a terminal that works with pynput. (`sudo apt install xterm`), then launch xterm, (don't forget to activate your virtual environment), and run the script from there.
+**The terminal window must remain in focus for keyboard input to reach the simulation.**
+
 ```bash
 (venv) python ./sim_keyboard_teleop.py
 ```
 
 (A guide to the keyboard controls is printed to the terminal on startup.)
-
-**Wayland note:** `pynput` (used by lerobot for keyboard capture) does not work (for me) under Wayland. Launch the script from an XWayland terminal such as `xterm`. **The terminal window must remain in focus for keyboard input to reach the simulation.**
 
 ## Operating the Simulation
 
